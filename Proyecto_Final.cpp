@@ -1,6 +1,8 @@
 
-// Animación de carro montaña rusa ( i, I )
-// Noche (n) Día (m)
+//Se requiere sólo los headers y cpp's de la práctica 12 
+//Se requiere texturas de la carpeta Montana_rusa
+//Animación de carro montaña rusa ( i, I )
+//Noche (n) Día (m)
 
 #include "texture.h"
 #include "figuras.h"
@@ -79,83 +81,95 @@ CTexture text2;
 CTexture text4;	//Pavimento
 CTexture text5;	//Pasto01
 
-////////////////////////////////// Montaña Rusa///////////////////
-CTexture text7; // Tubo amarillo
-CTexture text8; //Apoyo metálico
-CTexture text9; //Bandera carreras
-///////////////////////////////////////////////////////////////////
+////////////////////////////////// Montaña Rusa////////
+CTexture text7; // Tubo amarillo					///
+CTexture text8; //Apoyo metálico					///
+CTexture text9; //Bandera carreras					///
+//////////////////////////////////////////////////////
 
 /////////////////////Feria////////////////
-CTexture text10;
-CTexture text11;
-CTexture text12;
-CTexture text14; // Tubo Rojo
-CTexture text15; //canasta
+CTexture text10;						//
+CTexture text11;						//
+CTexture text12;						//
+CTexture text14; // Tubo Rojo			//
+CTexture text15; //canasta				//
+										//
+CTexture text16; //Anuncio				//
+CTexture text17; //Anuncio				//
+CTexture text18; //Anuncio				//
+CTexture text19; //Anuncio				//
+CTexture text20; //Anuncio				//
+CTexture text21; //brick				//
+CTexture text22; //brick_2				//
+CTexture text23;						//
+CTexture text24; // Fuego				//
+CTexture text25; //Fuego2				//
 //////////////////////////////////////////
 
-CFiguras fig1;
-CFiguras fig2;
-CFiguras fig3;
-CFiguras fig4;	//Pasto01
-CFiguras fig5;	//Casa01
-CFiguras fig6;
-CFiguras fig7;	//Para crear Monito
+/////////////////////////////////////
+CFiguras fig1;						//
+CFiguras fig2;						//
+CFiguras fig3;						//
+CFiguras fig4;	//Pasto01			//
+CFiguras fig5;	//Casa01			//
+CFiguras fig6;						//
+CFiguras fig7;	//Para crear Monito	//
+/////////////////////////////////////
 
-////////////////////////////////// Montaña Rusa///////////////////
-CFiguras fig8;  // Tubo Montaña Rusa
-CFiguras fig9;  // Apoyo metálico
-CFiguras fig10; //Bandera carreras
-///////////////////////////////////////////////////////////////////
+////////////////////////////////// Montaña Rusa////////////
+CFiguras fig8;  // Tubo Montaña Rusa					///
+CFiguras fig9;  // Apoyo metálico						///
+CFiguras fig10; //Bandera carreras						///
+///////////////////////////////////////////////////////////
 
-////////////////////////////// Feria //////////////////////////////
-CFiguras fig11; //Tubo azul
-CFiguras fig12; //Puesto
-CFiguras fig13; //Puesto 2
-CFiguras fig14; // Luna Majora
-CFiguras fig15; // Tubo rojo
-CFiguras fig16;
+////////////////////////////// Feria ////////////////////////////
+CFiguras fig11; //Tubo azul									/////
+CFiguras fig12; //Puesto									/////
+CFiguras fig13; //Puesto 2									/////
+CFiguras fig14; //Luna Majora                               /////
+CFiguras fig15; //Tubo rojo                                 /////
+CFiguras fig16;												/////
 /////////////////////////////////////////////////////////////////
 
+//////////////////////////////
+//Figuras de 3D Studio		//
+CModel kit;					//
+CModel llanta;				//
+//////////////////////////////
 
+/////Animación del coche/////
+float angRot = 0.0;		/////
+float movKitX;			/////
+float movKitZ;			/////
+float movKitY;			/////
+float rotKit = 0.0;		/////
+float rotKitZ = 0.0;	/////
+float rotKitX = 0.0;	/////
+float rotTires = 0.0;	/////
+bool g_fanimacion = false;///
+bool g_avanza = false;///////
+/////////////////////////////
 
-/////////////////////////////////////////////////////////////////
-//Figuras de 3D Studio
-CModel kit;
-CModel llanta;
-//////////////////////////////////////////////////////////////////
+//Cámara/////////////
+float camaraX = 0.0;//
+float camaraY = 0.0;//
+float camaraZ = 0.0;//
+////////////////////
 
-//Animación del coche
-float angRot = 0.0;
-float movKitX;
-float movKitZ;
-float movKitY;
-float rotKit = 0.0;
-float rotKitZ = 0.0;
-float rotKitX = 0.0;
-float rotTires = 0.0;
-bool g_fanimacion = false;
-bool g_avanza = false;
-
-//Cámara
-float camaraX = 0.0;
-float camaraY = 0.0;
-float camaraZ = 0.0;
-
-
-
-// Recorrido del carro en la montaña rusa
-bool circuito = false;
-bool recorrido1 = true;
-bool recorrido2 = false;
-bool recorrido3 = false;
-bool recorrido4 = false;
-bool recorrido5 = false;
-bool recorrido6 = false;
-bool recorrido7 = false;
-bool recorrido8 = false;
-bool recorrido9 = false;
-bool recorrido10 = false;
-bool recorrido11 = false;
+///Recorrido del carro en la montaña rusa//
+bool circuito = false;					///
+bool recorrido1 = true;					///
+bool recorrido2 = false;				///
+bool recorrido3 = false;				///
+bool recorrido4 = false;				///
+bool recorrido5 = false;				///
+bool recorrido6 = false;				///
+bool recorrido7 = false;				///
+bool recorrido8 = false;				///
+bool recorrido9 = false;				///
+bool recorrido10 = false;				///
+bool recorrido11 = false;				///
+///////////////////////////////////////////
 
 void saveFrame(void)
 {
@@ -1250,8 +1264,6 @@ void ciudad ()
 		glPopMatrix();
 
 		//////////////////////////////////////// Segundo Tubo ///////////////////
-
-
 
 		glPushMatrix(); //////////////// Apoyo 2
 		glTranslatef(18.0, 1.0, -31.5);
@@ -2486,11 +2498,3092 @@ void ciudad ()
 
 		///////////////////////////////Fin juego mecánico giratorio//////////////////////////////////
 
+		//////////////////////////////////Entrada////////////////////////////////////////////////////
+
+		glPushMatrix(); //flash
+		glTranslatef(40, 6, 8);
+		glScalef(7, 7, 0.1);
+		glDisable(GL_LIGHTING);
+		fig3.prisma_anun(text16.GLindex, text16.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix(); //Apoyo flash
+		glTranslatef(40, 3, 7);
+		glScalef(7, 18, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma_anun(text21.GLindex, text21.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix(); //superman
+		glTranslatef(10, 6, 8);
+		glScalef(7, 7, 0.1);
+		glDisable(GL_LIGHTING);
+		fig3.prisma_anun(text17.GLindex, text17.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix(); //Apoyo superman
+		glTranslatef(10, 3, 7);
+		glScalef(7, 18, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma_anun(text21.GLindex, text21.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix(); //wonder woman
+		glTranslatef(-20, 6, 8);
+		glScalef(7, 7, 0.1);
+		glDisable(GL_LIGHTING);
+		fig3.prisma_anun(text18.GLindex, text18.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix(); //Apoyo wonder woman
+		glTranslatef(-20, 3, 7);
+		glScalef(7, 18, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma_anun(text21.GLindex, text21.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix(); //linterna
+		glTranslatef(-50, 6, 8);
+		glScalef(7, 7, 0.1);
+		glDisable(GL_LIGHTING);
+		fig3.prisma_anun(text19.GLindex, text19.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix(); //Apoyo linterna
+		glTranslatef(-50, 3, 7);
+		glScalef(7, 18, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma_anun(text21.GLindex, text21.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix(); //Techo 1
+		glTranslatef(40, 15, 7);
+		glScalef(10, 5, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma_anun(text22.GLindex, text22.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix(); //Techo 2
+		glTranslatef(30, 15, 7);
+		glScalef(10, 5, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma_anun(text22.GLindex, text22.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix(); //Techo 3
+		glTranslatef(20, 15, 7);
+		glScalef(10, 5, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma_anun(text22.GLindex, text22.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix(); //Techo 4
+		glTranslatef(10, 15, 7);
+		glScalef(10, 5, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma_anun(text22.GLindex, text22.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix(); //Techo 5
+		glTranslatef(0, 15, 7);
+		glScalef(10, 5, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma_anun(text22.GLindex, text22.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix(); //Techo 6
+		glTranslatef(-10, 15, 7);
+		glScalef(10, 5, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma_anun(text22.GLindex, text22.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix(); //Techo 7
+		glTranslatef(-20, 15, 7);
+		glScalef(10, 5, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma_anun(text22.GLindex, text22.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix(); //Techo 8
+		glTranslatef(-30, 15, 7);
+		glScalef(10, 5, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma_anun(text22.GLindex, text22.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix(); //Techo 9
+		glTranslatef(-40, 15, 7);
+		glScalef(10, 5, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma_anun(text22.GLindex, text22.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix(); //Techo 10
+		glTranslatef(-50, 15, 7);
+		glScalef(10, 5, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma_anun(text22.GLindex, text22.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		///////////////////////////////////Fin Entrada///////////////////////////////////////////
+
+		////////////////////////////Pared///////////////////////////////////////////////////////
+
+		glPushMatrix(); //Pared 1
+		glTranslatef(40, 3, -2);
+		glScalef(2, 10, 18);
+		glDisable(GL_LIGHTING);
+		fig3.prisma_anun(text23.GLindex, text23.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix(); //Pared 2
+		glTranslatef(40, 3, -20);
+		glScalef(2, 10, 18);
+		glDisable(GL_LIGHTING);
+		fig3.prisma_anun(text23.GLindex, text23.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix(); //Pared 3 
+		glTranslatef(40, 3, -38);
+		glScalef(2, 10, 18);
+		glDisable(GL_LIGHTING);
+		fig3.prisma_anun(text23.GLindex, text23.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix(); //Pared 4 ////////Límite Derecho
+		glTranslatef(40, 3, -56);
+		glScalef(2, 10, 18);
+		glDisable(GL_LIGHTING);
+		fig3.prisma_anun(text23.GLindex, text23.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix(); //Pared 5
+		glTranslatef(30, 3, -65);
+		glScalef(18, 10, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma_anun(text23.GLindex, text23.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix(); //Pared 6
+		glTranslatef(12, 3, -65);
+		glScalef(18, 10, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma_anun(text23.GLindex, text23.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix(); //Pared 7
+		glTranslatef(-6, 3, -65);
+		glScalef(18, 10, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma_anun(text23.GLindex, text23.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix(); //Pared 8
+		glTranslatef(-12, 3, -65);
+		glScalef(18, 10, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma_anun(text23.GLindex, text23.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix(); //Pared 9
+		glTranslatef(-30, 3, -65);
+		glScalef(18, 10, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma_anun(text23.GLindex, text23.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix(); //Pared 10 Límite superior
+		glTranslatef(-48, 3, -65);
+		glScalef(18, 10, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma_anun(text23.GLindex, text23.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix(); //Pared 1 
+		glTranslatef(-48, 3, -2);
+		glScalef(2, 10, 18);
+		glDisable(GL_LIGHTING);
+		fig3.prisma_anun(text23.GLindex, text23.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix(); //Pared 2
+		glTranslatef(-48, 3, -20);
+		glScalef(2, 10, 18);
+		glDisable(GL_LIGHTING);
+		fig3.prisma_anun(text23.GLindex, text23.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix(); //Pared 3 
+		glTranslatef(-48, 3, -38);
+		glScalef(2, 10, 18);
+		glDisable(GL_LIGHTING);
+		fig3.prisma_anun(text23.GLindex, text23.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix(); //Pared 4 ////////Límite Izquierdo
+		glTranslatef(-48, 3, -56);
+		glScalef(2, 10, 18);
+		glDisable(GL_LIGHTING);
+		fig3.prisma_anun(text23.GLindex, text23.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		//////////////////////////////////Fin Pared///////////////////////////////////////////
+
+		/////////////////////////////////Kilawea/////////////////////////////////////////////
+
+		
+		
+		
+		
+		glPushMatrix();//Tubo 1 Soporte 1
+		glTranslatef(-25.0, 20.0, -50.0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(40.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Tubo 2 Soporte 1
+		glTranslatef(-22.0, 20.0, -50.0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(40.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
 
 
 
-		//////////////////////////////////////////////////////////////////////////////////////////////
+		glPushMatrix();//Soporte -9 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 38.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
 
+		glPushMatrix();//Soporte -8 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 36.5, -50.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -7 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 34.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -6 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 32.5, -50.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -5 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 30.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -4 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 28.5, -50.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -3 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 26.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -2 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 24.5, -50.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -1 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 22.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 1 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 20.0, -50.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 2 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 17.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 3 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 15.5, -50.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 4 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 13.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 5 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 11.5, -50.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 6 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 9.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 7 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 7.5, -50.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 8 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 5.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 9 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 3.5, -50.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 10 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 1.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+		////////////////////////////////////////////////////////////////////////////////
+
+		glPushMatrix();//Tubo 1 Soporte 2
+		glTranslatef(-25.0, 20.0, -46.0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(40.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Tubo 2 Soporte 2
+		glTranslatef(-22.0, 20.0, -46.0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(40.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -9 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 38.5, -46.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -8 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 36.5, -46.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -7 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 34.5, -46.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -6 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 32.5, -46.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -5 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 30.5, -46.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -4 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 28.5, -46.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -3 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 26.5, -46.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -2 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 24.5, -46.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -1 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 22.5, -46.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 1 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 20.0, -46.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 2 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 17.5, -46.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 3 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 15.5, -46.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 4 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 13.5, -46.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 5 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 11.5, -46.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 6 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 9.5, -46.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 7 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 7.5, -46.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 8 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 5.5, -46.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 9 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 3.5, -46.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 10 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 1.5, -46.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+		/////////////////////////////////////////////////////////////////////////////////////
+
+		glPushMatrix();//Soporte -9 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 38.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -8 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 36.5, -50.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -7 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 34.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -6 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 32.5, -50.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -5 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 30.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -4 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 28.5, -50.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -3 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 26.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -2 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 24.5, -50.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -1 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 22.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 1 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 20.0, -50.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 2 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 17.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 3 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 15.5, -50.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 4 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 13.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 5 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 11.5, -50.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 6 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 9.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 7 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 7.5, -50.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 8 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 5.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 9 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 3.5, -50.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 10 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 1.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+		////////////////////////////////////////////////////////////////////////////////
+
+		glPushMatrix();//Soporte -9 entre tubo 1 y tubo 2 
+		glTranslatef(-25.0, 38.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -8 entre tubo 1 y tubo 2 
+		glTranslatef(-25.0, 36.5, -48.0);
+		glRotatef(60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -7 entre tubo 1 y tubo 2 
+		glTranslatef(-25.0, 34.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -6 entre tubo 1 y tubo 2 
+		glTranslatef(-25.0, 32.5, -48.0);
+		glRotatef(60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -5 entre tubo 1 y tubo 2 
+		glTranslatef(-25, 30.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -4 entre tubo 1 y tubo 2 
+		glTranslatef(-25, 28.5, -48.0);
+		glRotatef(60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -3 entre tubo 1 y tubo 2 
+		glTranslatef(-25, 26.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -2 entre tubo 1 y tubo 2 
+		glTranslatef(-25, 24.5, -48.0);
+		glRotatef(60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -1 entre tubo 1 y tubo 2 
+		glTranslatef(-25, 22.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 1 entre tubo 1 y tubo 2 
+		glTranslatef(-25, 20.0, -48.0);
+		glRotatef(60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 2 entre tubo 1 y tubo 2 
+		glTranslatef(-25, 17.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 3 entre tubo 1 y tubo 2 
+		glTranslatef(-25, 15.5, -48.0);
+		glRotatef(60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 4 entre tubo 1 y tubo 2 
+		glTranslatef(-25, 13.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 5 entre tubo 1 y tubo 2 
+		glTranslatef(-25, 11.5, -48.0);
+		glRotatef(60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 6 entre tubo 1 y tubo 2 
+		glTranslatef(-25, 9.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 7 entre tubo 1 y tubo 2 
+		glTranslatef(-25, 7.5, -48.0);
+		glRotatef(60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 8 entre tubo 1 y tubo 2 
+		glTranslatef(-25, 5.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 9 entre tubo 1 y tubo 2 
+		glTranslatef(-25, 3.5, -48.0);
+		glRotatef(60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 10 entre tubo 1 y tubo 2 
+		glTranslatef(-25, 1.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		////////////////////////////////////////////////////////////////
+
+		glPushMatrix();//Soporte -9 entre tubo 1 y tubo 2 
+		glTranslatef(-22.0, 38.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -8 entre tubo 1 y tubo 2 
+		glTranslatef(-22.0, 36.5, -48.0);
+		glRotatef(60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -7 entre tubo 1 y tubo 2 
+		glTranslatef(-22.0, 34.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -6 entre tubo 1 y tubo 2 
+		glTranslatef(-22.0, 32.5, -48.0);
+		glRotatef(60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -5 entre tubo 1 y tubo 2 
+		glTranslatef(-22, 30.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -4 entre tubo 1 y tubo 2 
+		glTranslatef(-22, 28.5, -48.0);
+		glRotatef(60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -3 entre tubo 1 y tubo 2 
+		glTranslatef(-22, 26.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -2 entre tubo 1 y tubo 2 
+		glTranslatef(-22, 24.5, -48.0);
+		glRotatef(60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -1 entre tubo 1 y tubo 2 
+		glTranslatef(-22, 22.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 1 entre tubo 1 y tubo 2 
+		glTranslatef(-22, 20.0, -48.0);
+		glRotatef(60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 2 entre tubo 1 y tubo 2 
+		glTranslatef(-22, 17.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 3 entre tubo 1 y tubo 2 
+		glTranslatef(-22, 15.5, -48.0);
+		glRotatef(60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 4 entre tubo 1 y tubo 2 
+		glTranslatef(-22, 13.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 5 entre tubo 1 y tubo 2 
+		glTranslatef(-22, 11.5, -48.0);
+		glRotatef(60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 6 entre tubo 1 y tubo 2 
+		glTranslatef(-22, 9.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 7 entre tubo 1 y tubo 2 
+		glTranslatef(-22, 7.5, -48.0);
+		glRotatef(60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 8 entre tubo 1 y tubo 2 
+		glTranslatef(-22, 5.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 9 entre tubo 1 y tubo 2 
+		glTranslatef(-22, 3.5, -48.0);
+		glRotatef(60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 10 entre tubo 1 y tubo 2 
+		glTranslatef(-22, 1.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		/////////////////////////////////////////////////////////////////////////
+
+		glPushMatrix();//Metal Apoyo
+		glTranslatef(-23.6, 1.5, -47.0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 0, 0);
+		fig16.prisma(4.0, 1.0, 1.0, text8.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Metal Apoyo 2
+		glTranslatef(-23.6, 5.5, -47.0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(0, 1, 0);
+		fig16.prisma(4.0, 1.0, 1.0, text8.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Metal Apoyo 3
+		glTranslatef(-23.6, 9.5, -47.0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(0, 0, 1);
+		fig16.prisma(4.0, 1.0, 1.0, text8.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Metal Apoyo 4
+		glTranslatef(-23.6, 13.5, -47.0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 0);
+		fig16.prisma(4.0, 1.0, 1.0, text8.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Metal Apoyo 5
+		glTranslatef(-23.6, 13.5, -47.0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(0, 1, 1);
+		fig16.prisma(4.0, 1.0, 1.0, text8.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Metal Apoyo 6
+		glTranslatef(-23.6, 17.5, -47.0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 0, 0);
+		fig16.prisma(4.0, 1.0, 1.0, text8.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Metal Apoyo 7
+		glTranslatef(-23.6, 21.5, -47.0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(0, 1, 0);
+		fig16.prisma(4.0, 1.0, 1.0, text8.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Metal Apoyo 8
+		glTranslatef(-23.6, 25.5, -47.0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(0, 0, 1);
+		fig16.prisma(4.0, 1.0, 1.0, text8.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Metal Apoyo 9
+		glTranslatef(-23.6, 29.5, -47.0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 0, 1);
+		fig16.prisma(4.0, 1.0, 1.0, text8.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Metal Apoyo 10
+		glTranslatef(-23.6, 33.5, -47.0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(0, 1, 1);
+		fig16.prisma(4.0, 1.0, 1.0, text8.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		//////////////////////////////////////////////////////////////////////////////
+
+		glPushMatrix();//Asiento 1
+		glTranslatef(-23.6, 3.5, -45.5);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(4.0, 3.0, 0.5, text25.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Asiento 1
+		glTranslatef(-23.6, 2.0, -45.0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(0.5, 3.0, 2.0, text25.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Asiento 2
+		glTranslatef(-23.6, 3.5, -50.5);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(4.0, 3.0, 0.5, text25.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Asiento 2
+		glTranslatef(-23.6, 2.0, -51.5);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(0.5, 3.0, 2.0, text25.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		///////////////////////////Segunda parte Kilahuea/////////////////////////////////////////////
+
+		glPushMatrix();//Tubo 1 Soporte 1
+		glTranslatef(-15.0, 20.0, -50.0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(40.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Tubo 2 Soporte 1
+		glTranslatef(-12.0, 20.0, -50.0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(40.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+
+
+		glPushMatrix();//Soporte -9 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 38.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -8 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 36.5, -50.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -7 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 34.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -6 entre tubo 1 y tubo 2 
+		glTranslatef(-23.5, 32.5, -50.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -5 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 30.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -4 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 28.5, -50.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -3 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 26.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -2 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 24.5, -50.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -1 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 22.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 1 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 20.0, -50.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 2 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 17.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 3 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 15.5, -50.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 4 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 13.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 5 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 11.5, -50.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 6 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 9.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 7 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 7.5, -50.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 8 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 5.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 9 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 3.5, -50.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 10 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 1.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+		////////////////////////////////////////////////////////////////////////////////
+
+		glPushMatrix();//Tubo 1 Soporte 2
+		glTranslatef(-15.0, 20.0, -46.0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(40.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Tubo 2 Soporte 2
+		glTranslatef(-12.0, 20.0, -46.0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(40.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -9 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 38.5, -46.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -8 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 36.5, -46.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -7 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 34.5, -46.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -6 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 32.5, -46.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -5 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 30.5, -46.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -4 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 28.5, -46.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -3 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 26.5, -46.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -2 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 24.5, -46.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -1 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 22.5, -46.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 1 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 20.0, -46.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 2 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 17.5, -46.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 3 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 15.5, -46.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 4 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 13.5, -46.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 5 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 11.5, -46.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 6 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 9.5, -46.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 7 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 7.5, -46.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 8 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 5.5, -46.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 9 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 3.5, -46.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 10 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 1.5, -46.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+		/////////////////////////////////////////////////////////////////////////////////////
+
+		glPushMatrix();//Soporte -9 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 38.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -8 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 36.5, -50.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -7 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 34.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -6 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 32.5, -50.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -5 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 30.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -4 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 28.5, -50.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -3 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 26.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -2 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 24.5, -50.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -1 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 22.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 1 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 20.0, -50.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 2 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 17.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 3 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 15.5, -50.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 4 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 13.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 5 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 11.5, -50.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 6 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 9.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 7 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 7.5, -50.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 8 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 5.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 9 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 3.5, -50.0);
+		glRotatef(60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 10 entre tubo 1 y tubo 2 
+		glTranslatef(-13.5, 1.5, -50.0);
+		glRotatef(-60, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(3.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+		////////////////////////////////////////////////////////////////////////////////
+
+		glPushMatrix();//Soporte -9 entre tubo 1 y tubo 2 
+		glTranslatef(-15.0, 38.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -8 entre tubo 1 y tubo 2 
+		glTranslatef(-15.0, 36.5, -48.0);
+		glRotatef(60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -7 entre tubo 1 y tubo 2 
+		glTranslatef(-15.0, 34.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -6 entre tubo 1 y tubo 2 
+		glTranslatef(-15.0, 32.5, -48.0);
+		glRotatef(60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -5 entre tubo 1 y tubo 2 
+		glTranslatef(-15, 30.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -4 entre tubo 1 y tubo 2 
+		glTranslatef(-15, 28.5, -48.0);
+		glRotatef(60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -3 entre tubo 1 y tubo 2 
+		glTranslatef(-15, 26.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -2 entre tubo 1 y tubo 2 
+		glTranslatef(-15, 24.5, -48.0);
+		glRotatef(60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -1 entre tubo 1 y tubo 2 
+		glTranslatef(-15, 22.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 1 entre tubo 1 y tubo 2 
+		glTranslatef(-15, 20.0, -48.0);
+		glRotatef(60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 2 entre tubo 1 y tubo 2 
+		glTranslatef(-15, 17.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 3 entre tubo 1 y tubo 2 
+		glTranslatef(-15, 15.5, -48.0);
+		glRotatef(60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 4 entre tubo 1 y tubo 2 
+		glTranslatef(-15, 13.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 5 entre tubo 1 y tubo 2 
+		glTranslatef(-15, 11.5, -48.0);
+		glRotatef(60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 6 entre tubo 1 y tubo 2 
+		glTranslatef(-15, 9.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 7 entre tubo 1 y tubo 2 
+		glTranslatef(-15, 7.5, -48.0);
+		glRotatef(60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 8 entre tubo 1 y tubo 2 
+		glTranslatef(-15, 5.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 9 entre tubo 1 y tubo 2 
+		glTranslatef(-15, 3.5, -48.0);
+		glRotatef(60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 10 entre tubo 1 y tubo 2 
+		glTranslatef(-15, 1.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		////////////////////////////////////////////////////////////////
+
+		glPushMatrix();//Soporte -9 entre tubo 1 y tubo 2 
+		glTranslatef(-12.0, 38.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -8 entre tubo 1 y tubo 2 
+		glTranslatef(-12.0, 36.5, -48.0);
+		glRotatef(60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -7 entre tubo 1 y tubo 2 
+		glTranslatef(-12.0, 34.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -6 entre tubo 1 y tubo 2 
+		glTranslatef(-12.0, 32.5, -48.0);
+		glRotatef(60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -5 entre tubo 1 y tubo 2 
+		glTranslatef(-12, 30.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -4 entre tubo 1 y tubo 2 
+		glTranslatef(-12, 28.5, -48.0);
+		glRotatef(60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -3 entre tubo 1 y tubo 2 
+		glTranslatef(-12, 26.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -2 entre tubo 1 y tubo 2 
+		glTranslatef(-12, 24.5, -48.0);
+		glRotatef(60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte -1 entre tubo 1 y tubo 2 
+		glTranslatef(-12, 22.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 1 entre tubo 1 y tubo 2 
+		glTranslatef(-12, 20.0, -48.0);
+		glRotatef(60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 2 entre tubo 1 y tubo 2 
+		glTranslatef(-12, 17.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 3 entre tubo 1 y tubo 2 
+		glTranslatef(-12, 15.5, -48.0);
+		glRotatef(60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 4 entre tubo 1 y tubo 2 
+		glTranslatef(-12, 13.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 5 entre tubo 1 y tubo 2 
+		glTranslatef(-12, 11.5, -48.0);
+		glRotatef(60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 6 entre tubo 1 y tubo 2 
+		glTranslatef(-12, 9.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 7 entre tubo 1 y tubo 2 
+		glTranslatef(-12, 7.5, -48.0);
+		glRotatef(60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 8 entre tubo 1 y tubo 2 
+		glTranslatef(-12, 5.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 9 entre tubo 1 y tubo 2 
+		glTranslatef(-12, 3.5, -48.0);
+		glRotatef(60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Soporte 10 entre tubo 1 y tubo 2 
+		glTranslatef(-12, 1.5, -48.0);
+		glRotatef(-60, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(5.0, 0.5, 0.5, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		/////////////////////////////////////////////////////////////////////////
+
+		glPushMatrix();//Metal Apoyo
+		glTranslatef(-13.6, 1.5, -47.0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 0, 0);
+		fig16.prisma(4.0, 1.0, 1.0, text8.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Metal Apoyo 2
+		glTranslatef(-13.6, 5.5, -47.0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(0, 1, 0);
+		fig16.prisma(4.0, 1.0, 1.0, text8.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Metal Apoyo 3
+		glTranslatef(-13.6, 9.5, -47.0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(0, 0, 1);
+		fig16.prisma(4.0, 1.0, 1.0, text8.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Metal Apoyo 4
+		glTranslatef(-13.6, 13.5, -47.0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 0);
+		fig16.prisma(4.0, 1.0, 1.0, text8.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Metal Apoyo 5
+		glTranslatef(-13.6, 13.5, -47.0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(0, 1, 1);
+		fig16.prisma(4.0, 1.0, 1.0, text8.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Metal Apoyo 6
+		glTranslatef(-13.6, 17.5, -47.0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 0, 0);
+		fig16.prisma(4.0, 1.0, 1.0, text8.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Metal Apoyo 7
+		glTranslatef(-13.6, 21.5, -47.0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(0, 1, 0);
+		fig16.prisma(4.0, 1.0, 1.0, text8.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Metal Apoyo 8
+		glTranslatef(-13.6, 25.5, -47.0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(0, 0, 1);
+		fig16.prisma(4.0, 1.0, 1.0, text8.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Metal Apoyo 9
+		glTranslatef(-13.6, 29.5, -47.0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 0, 1);
+		fig16.prisma(4.0, 1.0, 1.0, text8.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Metal Apoyo 10
+		glTranslatef(-13.6, 33.5, -47.0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(0, 1, 1);
+		fig16.prisma(4.0, 1.0, 1.0, text8.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		//////////////////////////////////////////////////////////////////////////////
+
+		glPushMatrix();//Asiento 1
+		glTranslatef(-13.6, 3.5, -45.5);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(4.0, 3.0, 0.5, text25.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Asiento 1
+		glTranslatef(-13.6, 2.0, -45.0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(0.5, 3.0, 2.0, text25.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Asiento 2
+		glTranslatef(-16.6, 3.5, -45.5);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(4.0, 3.0, 0.5, text25.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Asiento 2
+		glTranslatef(-16.6, 2.0, -45.0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(0.5, 3.0, 2.0, text25.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Asiento 3
+		glTranslatef(-19.6, 3.5, -45.5);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(4.0, 3.0, 0.5, text25.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Asiento 3
+		glTranslatef(-19.6, 2.0, -45.0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(0.5, 3.0, 2.0, text25.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Asiento 4
+		glTranslatef(-23.6, 3.5, -45.5);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(4.0, 3.0, 0.5, text25.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Asiento 4
+		glTranslatef(-23.6, 2.0, -45.0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(0.5, 3.0, 2.0, text25.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Asiento 5
+		glTranslatef(-23.61, 3.5, -45.5);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(4.0, 5.0, 0.5, text25.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Asiento 5
+		glTranslatef(-23.61, 2.0, -45.0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(0.5, 3.0, 2.0, text25.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Asiento 6
+		glTranslatef(-13.6, 3.5, -50.5);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(4.0, 3.0, 0.5, text25.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Asiento 6
+		glTranslatef(-13.6, 2.0, -51.5);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(0.5, 3.0, 2.0, text25.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Asiento 7
+		glTranslatef(-16.6, 3.5, -50.5);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(4.0, 3.0, 0.5, text25.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Asiento 7
+		glTranslatef(-16.6, 2.0, -51.5);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(0.5, 3.0, 2.0, text25.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Asiento 8
+		glTranslatef(-19.6, 3.5, -50.5);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(4.0, 3.0, 0.5, text25.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Asiento 8
+		glTranslatef(-19.6, 2.0, -51.5);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(0.5, 3.0, 2.0, text25.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Asiento 9
+		glTranslatef(-22.6, 3.5, -50.5);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(4.0, 3.0, 0.5, text25.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Asiento 9
+		glTranslatef(-22.6, 2.0, -51.5);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(0.5, 3.0, 2.0, text25.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Esfera
+		glTranslatef(-18.6, 41.0, -48.5);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.esfera(8,12,12, text24.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		/////////////////////////////////Fin Kilahuea////////////////////////////////////////////////////////
+
+		//////////////////////////////////Juego Cohetes/////////////////////////////////////////////////////
+
+		glPushMatrix();//Metal Apoyo central
+		glTranslatef(20, 1.5, -47.0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(4.0, 1.0, 1.0, text8.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Metal Apoyo central 2
+		glTranslatef(20, 5.5, -47.0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(4.0, 1.0, 1.0, text8.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Metal Apoyo 
+		glTranslatef(20, 8.0, -46.0);
+		glRotatef(50, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(4.0, 1.0, 1.0, text8.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Articulación central
+		glTranslatef(20, 7.5, -47.0);
+		glRotatef(50, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 0, 1);
+		fig16.esfera(1.0, 12.0, 12.0, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Metal Apoyo 2
+		glTranslatef(20, 8.0, -44.0);
+		glRotatef(-50, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(4.0, 1.0, 1.0, text8.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Articulación Apoyo1 - Apoyo 2
+		glTranslatef(20, 9.0, -45.0);
+		glRotatef(-50, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 0, 1);
+		fig16.esfera(1.0,12,12, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Cohete 1
+		glTranslatef(22, 6.5, -42.0);
+		glRotatef(90, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(0, 0, 1);
+		fig11.cilindro(1.0, 4,10, text11.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Cohete 1 Frente
+		glTranslatef(18, 6.5, -42.0);
+		glRotatef(90, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 0, 0);
+		fig11.cono(3.0, 1.0, 10, text14.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Cohete 1 Detrás 1
+		glTranslatef(22, 6.5, -42.0);
+		glRotatef(90, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 0, 0);
+		fig11.prisma(1.0, 0.5, 2.0, text14.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Cohete 1 Detrás 2
+		glTranslatef(22, 6.5, -42.0);
+		glRotatef(90, 0, 1, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 0, 0);
+		fig11.prisma(1.0, 0.5, 2.0, text14.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		//////////////////////////////Segundo Cohete///////////////////////////////////////////////
+
+		glPushMatrix();//Metal Apoyo 
+		glTranslatef(20, 8.0, -48.0);
+		glRotatef(-50, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(4.0, 1.0, 1.0, text8.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Articulación Apoyo 1 - Apoyo 2
+		glTranslatef(20, 9.0, -49.5);
+		glRotatef(-50, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 0, 1);
+		fig16.esfera(1.0, 12.0, 12.0, text7.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Metal Apoyo 2
+		glTranslatef(20, 8.0, -51.0);
+		glRotatef(50, 1, 0, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 1, 1);
+		fig16.prisma(4.0, 1.0, 1.0, text8.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Cohete 1
+		glTranslatef(22, 6.5, -52.0);
+		glRotatef(90, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(0, 0, 1);
+		fig11.cilindro(1.0, 4, 10, text11.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Cohete 1 Frente
+		glTranslatef(22, 6.5, -52.0);
+		glRotatef(270, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 0, 0);
+		fig11.cono(3.0, 1.0, 10, text14.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Cohete 1 Detrás 1
+		glTranslatef(18, 6.5, -52.0);
+		glRotatef(90, 0, 0, 1);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 0, 0);
+		fig11.prisma(1.0, 0.5, 2.0, text14.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		glPushMatrix();//Cohete 1 Detrás 2
+		glTranslatef(18, 6.5, -52.0);
+		glRotatef(90, 0, 1, 0);
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, puestoDiffuse);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, puestoSpecular);
+		glDisable(GL_LIGHTING);
+		glColor3f(1, 0, 0);
+		fig11.prisma(1.0, 0.5, 2.0, text14.GLindex);
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+
+		////////////////////////////////Fin Juego Cohetes//////////////////////////////////
 
 
 }
@@ -2602,7 +5695,6 @@ GLuint createDL()
 	// the rendering commands
 		ciudad();
 		
-		//monito();
 	// endList
 	glEndList();
 
@@ -2645,7 +5737,7 @@ void InitGL ( GLvoid )     // Inicializamos parametros
     //glBlendFunc(GL_SRC_ALPHA,GL_ONE);			// Set The Blending Function For Translucency
     //glColor4f(1.0f, 1.0f, 1.0f, 0.5); 
     
-    text1.LoadBMP("01.bmp");
+    text1.LoadBMP("montana_rusa/01.bmp");
 	text1.BuildGLTexture();
 	text1.ReleaseImage();
 
@@ -2692,10 +5784,71 @@ void InitGL ( GLvoid )     // Inicializamos parametros
 	text15.ReleaseImage();					////////
 	////////////////////////////////////////////////
 
-	kit._3dsLoad("kitt.3ds");	
-	//kit.VertexNormals();
-	
-	llanta._3dsLoad("k_rueda.3ds");
+	/////////////////////////////////////////////////
+	text16.LoadBMP("montana_rusa/flash_3.bmp"); /////
+	text16.BuildGLTexture();                /////////
+	text16.ReleaseImage();					////////
+	////////////////////////////////////////////////
+
+    //////////////Entrada//////////////////////////////
+	text17.LoadBMP("montana_rusa/superman.bmp"); /////
+	text17.BuildGLTexture();                /////////
+	text17.ReleaseImage();					////////
+	///////////////////////////////////////////////
+
+	//////////////////////////////////////////////////
+	text18.LoadBMP("montana_rusa/wonder.bmp"); ///////
+	text18.BuildGLTexture();                /////////
+	text18.ReleaseImage();					////////
+	///////////////////////////////////////////////
+
+	/////////////////////////////////////////////////
+	text19.LoadBMP("montana_rusa/linterna.bmp"); ////
+	text19.BuildGLTexture();                /////////
+	text19.ReleaseImage();					////////
+	////////////////////////////////////////////////
+
+	/////////////////////////////////////////////////
+	text20.LoadBMP("montana_rusa/cyborg.bmp"); ///////
+	text20.BuildGLTexture();                /////////
+	text20.ReleaseImage();					////////
+	////////////////////////////////////////////////
+
+	/////////////////////////////////////////////////
+	text21.LoadBMP("montana_rusa/brick.bmp"); ///////
+	text21.BuildGLTexture();                /////////
+	text21.ReleaseImage();					////////
+	////////////////////////////////////////////////
+
+	/////////////////////////////////////////////////
+	text22.LoadBMP("montana_rusa/brick_2.bmp"); /////
+	text22.BuildGLTexture();                /////////
+	text22.ReleaseImage();					////////
+	////////////////////////////////////////////////
+
+	/////////////////////////////////////////////////
+	text23.LoadBMP("montana_rusa/brick_3.bmp"); /////
+	text23.BuildGLTexture();                /////////
+	text23.ReleaseImage();					////////
+	////////////////////////////////////////////////
+
+	/////////////////////////////////////////////////
+	text24.LoadBMP("montana_rusa/fuego.bmp"); ///////
+	text24.BuildGLTexture();                /////////
+	text24.ReleaseImage();					////////
+	////////////////////////////////////////////////
+
+	/////////////////////////////////////////////////
+	text25.LoadBMP("montana_rusa/fuego2.bmp"); ///////
+	text25.BuildGLTexture();                /////////
+	text25.ReleaseImage();					////////
+	////////////////////////////////////////////////
+
+	/////////////////////////////////////////
+	kit._3dsLoad("montana_rusa/kitt.3ds");///	
+	//kit.VertexNormals();				////
+	llanta._3dsLoad("k_rueda.3ds");		////
+	////////////////////////////////////////
 
 	objCamera.Position_Camera(0,2.5f,3, 0,2.5f,0, 0, 1, 0);
 
@@ -2856,7 +6009,7 @@ void display ( void )   // Creamos la funcion donde se dibuja
 	glDisable(GL_TEXTURE_2D);
 		glDisable(GL_LIGHTING);
 			glColor3f(1.0,0.0,0.0);
-			pintaTexto(-11,12.0,-14.0,(void *)font,"Proyecto Final Feria");
+			pintaTexto(-11,12.0,-14.0,(void *)font,"Proyecto Final Feria EPT");
 			//pintaTexto(-11,10.5,-14,(void *)font,"Listas de Dibujo");
 			pintaTexto(-11,8.5,-14,(void *)font,s);
 			glColor3f(1.0,1.0,1.0);
@@ -2869,13 +6022,6 @@ void display ( void )   // Creamos la funcion donde se dibuja
 
 void animacion()
 {
-	fig3.text_izq-= 0.01;
-	fig3.text_der-= 0.01;
-	if(fig3.text_izq<-1)
-		fig3.text_izq=0;
-	if(fig3.text_der<0)
-		fig3.text_der=1;
-
 
 	//Movimiento del coche
 	if(g_fanimacion)
@@ -3056,14 +6202,6 @@ void animacion()
 
 	}
 
-	/*frame++;
-	time=glutGet(GLUT_ELAPSED_TIME);
-	if (time - timebase > 1000) {
-		sprintf(s,"FPS:%4.2f",frame*1000.0/(time-timebase));
-		timebase = time;		
-		frame = 0;
-	}*/
-
 	glutPostRedisplay();
 }
 
@@ -3196,7 +6334,6 @@ void keyboard ( unsigned char key, int x, int y )  // Create Keyboard Function
 			break;
 
 		case 'n':
-
 			glEnable(GL_LIGHTING);
 			glEnable(GL_LIGHT0);
 			glEnable(GL_LIGHT1);
@@ -3206,7 +6343,6 @@ void keyboard ( unsigned char key, int x, int y )  // Create Keyboard Function
 			break;
 
 		case 'm':
-	
 			glDisable(GL_LIGHTING);
 			glDisable(GL_LIGHT0);
 			glDisable(GL_LIGHT1);
@@ -3214,6 +6350,8 @@ void keyboard ( unsigned char key, int x, int y )  // Create Keyboard Function
 			glDisable(GL_CULL_FACE);
 			glCullFace(GL_BACK);
 			break;
+
+		
 
 		case 27:        // Cuando Esc es presionado...
 			exit ( 0 );   // Salimos del programa
@@ -3297,7 +6435,6 @@ void menuKeyFrame(int id)
 	}
 }
 
-
 void menu(int id)
 {
 
@@ -3311,7 +6448,7 @@ int main ( int argc, char** argv )   // Main Function
   glutInitDisplayMode (GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH); // Display Mode (Clores RGB y alpha | Buffer Doble )
   glutInitWindowSize  (500, 500);	// Tamaño de la Ventana
   glutInitWindowPosition (0, 0);	//Posicion de la Ventana
-  glutCreateWindow    ("Proyecto Final"); // Nombre de la Ventana
+  glutCreateWindow    ("Proyecto Final EPT"); // Nombre de la Ventana
   //glutFullScreen     ( );         // Full Screen
   InitGL ();						// Parametros iniciales de la aplicacion
   glutDisplayFunc     ( display );  //Indicamos a Glut función de dibujo
